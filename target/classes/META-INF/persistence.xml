@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="hello">
+        <properties>
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop2"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!--   테이블 삭제 후 다시 만듬-->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <!--   테이블 삭제 후 다시 만듬 + 종료 시 테이블 삭제-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+            <!--   테이블 drop 안하고 alter(Update)로 됨, colum 삭제 불가능-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="update" />-->
+            <!--   잘 매핑됬는지 확인-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="validate" />-->
+            <!--   사용 x-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="none" />-->
+
+            <!-- 개발 초기 단계는 create 또는 update-->
+            <!-- 테스트 서버는 update 또는 validate-->
+            <!-- 개발 초기 단계는 validate 또는 none-->
+        </properties>
+    </persistence-unit>
+</persistence>
